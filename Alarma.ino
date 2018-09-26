@@ -13,7 +13,8 @@ void setup() {
 }
 
 void loop() {
-
+LowPower.powerDown(SLEEP_4S, ADC_OFF, BOD_OFF); 
+digitalWrite(buzzer,HIGH);
 }
 
 // Metodo encargado de eliminar el rebote y denota el "wake up" del arduino
