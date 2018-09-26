@@ -8,8 +8,8 @@
 long tiempo = 0;
 
 void setup() {
-  
-
+  pinMode(reedSwitch,INPUT); // Entrada del switch
+  pinMode(buzzer,OUTPUT); // Salida para el buzzer
 }
 
 void loop() {
@@ -18,5 +18,7 @@ void loop() {
 
 // Metodo encargado de eliminar el rebote y denota el "wake up" del arduino
 void wakeUp(){
-  
+  if(millis()> tiempo +150){
+    tiempo = millis();
+  }
 }
