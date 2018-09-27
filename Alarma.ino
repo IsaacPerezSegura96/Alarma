@@ -18,6 +18,9 @@ void loop() {
   attachInterrupt(0, wakeUp, LOW);
   // Se realiza la reduccion de energia hasta que se detecte un LOW
   LowPower.powerDown(SLEEP_FOREVER, ADC_OFF, BOD_OFF);
+  // Instruccion que nos ayuda a verificar que esta duermiendo, si el led no enciendo significa que esta durmiendo correctamente.
+  digitalWrite(led,HIGH);
+  
   //Se deshabilita la interrupcion para poder implementar acciones al buzzer
   detachInterrupt(0);
   /* <--- Mis acciones --->*/
@@ -42,7 +45,5 @@ void loop() {
 
 // Metodo encargado de eliminar el rebote y denota el "wake up" del arduino
 void wakeUp(){
-  if(millis()> tiempo +150){
-    tiempo = millis();
-  }
+// 
 }
