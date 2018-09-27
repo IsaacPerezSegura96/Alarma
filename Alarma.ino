@@ -1,8 +1,8 @@
 /* Incluyendo la libreria */
 #include "LowPower.h"
-
+//Definicion de los pines a usar
 #define reedSwitch 2
-#define buzzer 4
+#define buzzer 5
 
 // Variables para eliminar el rebote del switch
 long tiempo = 0;
@@ -22,7 +22,15 @@ void loop() {
   /* <--- Mis acciones --->*/
   // Mientras se active el switch en su modalidad PULL UP (es decir que se detecte LOW) se accionara la alarma
   while(digitalRead(reedSwitch)==LOW){
-    digitalWrite(buzzer,HIGH);
+    // Se implementa el funcionamiento de los pines PWM
+    for(int contador=0;contador<=255;contador+=10){
+      analogWrite(buzzer,contador);
+      delay(10);
+    }
+    for(int contador=255;contador>0;contador-=10){
+      analogWrite(buzzer,contador);
+      delay(10);
+    }
   }
   // Se desactiva la alarma cuando la puerta se cierra
   digitalWrite(buzzer,LOW);
