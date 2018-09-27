@@ -14,10 +14,9 @@ void loop() {
   // Creacion de la interrupcion que nos permitira salir del SLEEP mediante PULL UP
   attachInterrupt(0, wakeUp, LOW);
   // Se realiza la reduccion de energia hasta que se detecte un LOW
-  LowPower.powerDown(SLEEP_FOREVER, ADC_OFF, BOD_OFF);
-  // Instruccion que nos ayuda a verificar que esta duermiendo, si el led no enciendo significa que esta durmiendo correctamente.
+  LowPower.powerDown(SLEEP_FOREVER, ADC_OFF, BOD_OFF); 
+  //Comprobacion de que se encuentra dormido, si el led no prende
   digitalWrite(led,HIGH);
-  
   //Se deshabilita la interrupcion para poder implementar acciones al buzzer
   detachInterrupt(0);
   /* <--- Mis acciones --->*/
