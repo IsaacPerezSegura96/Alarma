@@ -3,6 +3,7 @@
 //Definicion de los pines a usar
 #define reedSwitch 2
 #define buzzer 5
+#define led 6
 
 // Variables para eliminar el rebote del switch
 long tiempo = 0;
@@ -25,15 +26,18 @@ void loop() {
     // Se implementa el funcionamiento de los pines PWM
     for(int contador=0;contador<=255;contador+=10){
       analogWrite(buzzer,contador);
+      analogWrite(led,contador);
       delay(10);
     }
     for(int contador=255;contador>0;contador-=10){
       analogWrite(buzzer,contador);
+      analogWrite(led,contador);
       delay(10);
     }
   }
   // Se desactiva la alarma cuando la puerta se cierra
   digitalWrite(buzzer,LOW);
+  digitalWrite(led,LOW);
 }
 
 // Metodo encargado de eliminar el rebote y denota el "wake up" del arduino
