@@ -5,9 +5,6 @@
 #define buzzer 5
 #define led 6
 
-// Variables para eliminar el rebote del switch
-long tiempo = 0;
-
 void setup() {
   pinMode(reedSwitch,INPUT); // Entrada del switch
   pinMode(buzzer,OUTPUT); // Salida para el buzzer
